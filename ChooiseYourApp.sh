@@ -1,7 +1,7 @@
 #!/bin/bash
 ############################################################################
 #    Kajii Narumi kajiikana69@gmail.com
-#    Copyright (C) 2016 ChooiseYourApp.sh
+#    Copyright (C) 2017 ChooiseYourApp.sh
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -54,7 +54,7 @@ Las aplicaciones que comienzan con un '*' requieren repositorios y Volvera a act
 opcion=`/usr/bin/zenity --title="Instalacon de Aplicaciones" --width=500 --height=700 \
                          --text="Selecciona las Aplicaciones a instalar" \
                          --list --column="Seleccionar" --column="Aplicacion" --column="Descripcion" \
-                         --checklist TRUE "Ubuntu-extras" "Herramientas extras para ubuntu" TRUE "codec A/V" "codec audio y video" FALSE "dejadup" "Copias de seguridad" FALSE "ssh" "Conexión en red" FALSE "java" "java" FALSE "gparted" "Gestor de particiones" TRUE "gdebi" "Gestor de paquetes debian" FALSE "k3b" "Quemador de cd/dvd" FALSE "gedit" "Editor de Textos" FALSE "synaptic" "Gestor de aplicaciones" FALSE "conky" "widgets" FALSE "openshot" "Editor de videos sencillo" FALSE "kdenlive" "Editor de videos" FALSE "testdisk" "Data Recovery" FALSE "kazam" "Grabador de Escritorio" FALSE "*clipgrab" "Descargador de Youtube" FALSE "*brackets" "Editor De Texto Para Programacion" FALSE "amarok" "Reproductor de audio" FALSE "spotify" "Reproductor de audio" FALSE "vlc" "Reproductor de videos" FALSE "fslint" "gestor de archivos dulicados" FALSE "gimp" "Editor de imaenes" FALSE "guvcview" "WebCam" FALSE "*kodi" "Smart TV" FALSE "inkscape" "Creador de imagenes" FALSE "klavaro" "Mecanografia" FALSE "scribus" "Alternativa Profecionar Publisher" FALSE "thunderbird" "Gestor de E-mail" FALSE "qbittorrent" "Gestor de descargas Torrent" FALSE "wine" "Ejecutador de Programas Windows" FALSE "pinta" "Alternativas a paint" FALSE "*dvdstyler" "Creador de dvd personalizados" FALSE "audacity" "Editor de Audios" FALSE "tuxtype" "Mecangrafia para niños" FALSE "mixxx" "Alternativa a Virtual dj" FALSE "dia" "Creador de Diagramas" FALSE "glabels" "Creador de Codigos de barras" FALSE "gucash" "Gestor de cuentsa bancarias" FALSE "hamster" "Adminitrador de tiempos" FALSE "virtualbox" "Maquinas Virtuales" FALSE "osmo" "Asistente Personal" FALSE "blender" "Animaciones 3D" FALSE "y-ppa-manager" "Gestor de repositorios" FALSE "steam" "Consola de videojuegos" FALSE "billard-gl" "Juego" FALSE "chromium-bsu" "Juego" FALSE "freegish" "Juego" FALSE "frogatto" "Juego" FALSE "hedgewars" "Juego" FALSE "kmahjongg" "Juego" FALSE "ksquares" "Juego" FALSE "pokerth" "Juego" FALSE "supertux" "Juego" FALSE "supertuxkart" "Juego" FALSE "openrena" "Juego" FALSE "fretsonfire" "Juego" FALSE "sauerbraten" "Juego" `
+                         --checklist TRUE "Ubuntu-extras" "Herramientas extras para ubuntu" TRUE "codec A/V" "codec audio y video" TRUE "gdebi" "Gestor de paquetes debian" TRUE "gedit" "Editor de Textos" FALSE "amarok" "Reproductor de audio" FALSE "audacity" "Editor de Audios" FALSE "blender" "Animaciones 3D" FALSE "*brackets" "Editor De Texto Para Programacion" FALSE "*clipgrab" "Descargador de Youtube" FALSE "conky" "widgets" FALSE "dejadup" "Copias de seguridad" FALSE "dia" "Creador de Diagramas" FALSE "dvdrip" "Extraer videos de un dvd" FALSE "*dvdstyler" "Creador de dvd personalizados" FALSE "fslint" "gestor de archivos dulicados" FALSE "gimp" "Editor de imaenes" FALSE "glabels" "Creador de Codigos de barras" FALSE "gparted" "Gestor de particiones" FALSE "gucash" "Gestor de cuentsa bancarias" FALSE "guvcview" "WebCam" FALSE "hamster" "Adminitrador de tiempos" FALSE "inkscape" "Creador de imagenes" FALSE "java" "java" FALSE "k3b" "Quemador de cd/dvd" FALSE "kazam" "Grabador de Escritorio" FALSE "kdenlive" "Editor de videos" FALSE "klavaro" "Mecanografia" FALSE "*kodi" "Smart TV" FALSE "mixxx" "Alternativa a Virtual dj" FALSE "openshot" "Editor de videos sencillo" FALSE "osmo" "Asistente Personal" FALSE "pinta" "Alternativas a paint" FALSE "qbittorrent" "Gestor de descargas Torrent" FALSE "scribus" "Alternativa Profecionar Publisher" FALSE "spotify" "Reproductor de audio" FALSE "ssh" "Conexión en red" FALSE "synaptic" "Gestor de aplicaciones" FALSE "testdisk" "Data Recovery" FALSE "thunderbird" "Gestor de E-mail" FALSE "tuxtype" "Mecangrafia para niños" FALSE "virtualbox" "Maquinas Virtuales" FALSE "vlc" "Reproductor de videos" FALSE "wine" "Ejecutador de Programas Windows" FALSE "y-ppa-manager" "Gestor de repositorios" FALSE "steam" "Consola de videojuegos" FALSE "billard-gl" "Juego" FALSE "chromium-bsu" "Juego" FALSE "freegish" "Juego" FALSE "fretsonfire" "Juego" FALSE "frogatto" "Juego" FALSE "hedgewars" "Juego" FALSE "kmahjongg" "Juego" FALSE "ksquares" "Juego" FALSE "minetest" "Juego" FALSE "openrena" "Juego" FALSE "pokerth" "Juego" FALSE "sauerbraten" "Juego" FALSE "supertux" "Juego" FALSE "supertuxkart" "Juego" FALSE "warzone2100" "Juego" `
 
 if [ $? -eq 0 ]
 then
@@ -69,89 +69,60 @@ echo "Ubuntu-extras"
                      then
 echo "codec A/V"
                      sudo apt-get install pavucontrol lame vorbis-tools flac faac faad mplayer mencoder libdvdread4 mjpegtools -y
-              elif [ "$opcion" = "dejadup" ]
-                     then
-echo "dejadup"
-                     sudo apt-get install deja-dup -y
-              elif [ "$opcion" = "ssh" ]
-                     then
-echo "ssh"
-                     sudo apt-get install ssh -y
-              elif [ "$opcion" = "java" ]
-                     then
-echo "java"
-		sudo add-apt-repository ppa:webupd8team/java -y
-		sudo apt-get update
-		sudo apt-get installoracle-java8-installer -y
-              elif [ "$opcion" = "gparted" ]
-                     then
-echo "gparted"
-                     sudo apt-get install gparted -y
 	      elif [ "$opcion" = "gdebi" ]
                      then
 echo "gdebi"
                      sudo apt-get install gdebi -y
-	      elif [ "$opcion" = "k3b" ]
-                     then
-echo "k3b"
-                     sudo apt-get install k3b dvdauthor breeze frei0r-plugins kde-l10n-es -y
               elif [ "$opcion" = "gedit" ]
                      then
 echo "gedit"
                      sudo apt-get install gedit -y
-              elif [ "$opcion" = "synaptic" ]
+	      elif [ "$opcion" = "amarok" ]
                      then
-echo "synaptic"
-                     sudo apt-get install synaptic -y
-              elif [ "$opcion" = "conky" ]
+echo "amarok"
+                     sudo apt-get install amarok kde-l10n-es -y
+              elif [ "$opcion" = "audacity" ]
                      then
-echo "conky"
-                     sudo apt-get install conky-all lm-sensors -y
-              elif [ "$opcion" = "openshot" ]
+echo "audacity"
+                     sudo apt-get install audacity -y
+              elif [ "$opcion" = "blender" ]
                      then
-echo "openshot"
-                     sudo apt-get install openshot -y
-              elif [ "$opcion" = "kdenlive" ]
-                     then
-echo "kdenlive"
-		sudo add-apt-repository ppa:kdenlive/kdenlive-stable -y
-		sudo apt-get update
-		sudo apt-get install kdenlive -y
-	      elif [ "$opcion" = "testdisk" ]
-                     then
-echo "testdisk"
-                     sudo apt-get install testdisk -y
-              elif [ "$opcion" = "kazam" ]
-                     then
-echo "kazam"
-                     sudo apt-get install kazam -y
-	      elif [ "$opcion" = "*clipgrab" ]
-                     then
-echo "clipgrab"
-		sudo add-apt-repository ppa:clipgrab-team/ppa -y
-		sudo apt-get update
-		sudo apt-get install clipgrab
+echo "blender"
+                     sudo apt-get install blender -y
 	      elif [ "$opcion" = "*brackets" ]
                      then
 echo "brackets"
 		sudo add-apt-repository ppa:webupd8team/brackets -y
 		sudo apt-get update
                      sudo apt-get install brackets -y
-	      elif [ "$opcion" = "amarok" ]
+	      elif [ "$opcion" = "*clipgrab" ]
                      then
-echo "amarok"
-                     sudo apt-get install amarok kde-l10n-es -y
-	      elif [ "$opcion" = "spotify" ]
+echo "clipgrab"
+		sudo add-apt-repository ppa:clipgrab-team/ppa -y
+		sudo apt-get update
+		sudo apt-get install clipgrab -y
+              elif [ "$opcion" = "conky" ]
                      then
-echo "spotify"
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt-get update
-	sudo apt-get install spotify-client -y
-              elif [ "$opcion" = "vlc" ]
+echo "conky"
+                     sudo apt-get install conky-all lm-sensors -y
+              elif [ "$opcion" = "dejadup" ]
                      then
-echo "vlc"
-                     sudo apt-get install vlc -y
+echo "dejadup"
+                     sudo apt-get install deja-dup -y
+	      elif [ "$opcion" = "dia" ]
+                     then
+echo "dia"
+                     sudo apt-get install dia -y
+              elif [ "$opcion" = "dvdrip" ]
+                     then
+echo "dvdrip"
+		sudo apt-get install dvdrip -y
+              elif [ "$opcion" = "*dvdstyler" ]
+                     then
+echo "dvdstyler"
+		sudo add-apt-repository ppa:ubuntuhandbook1/dvdstyler -y
+		sudo apt-get update
+                     sudo apt-get install dvdstyler -y
 	      elif [ "$opcion" = "fslint" ]
                      then
 echo "fslint"
@@ -160,90 +131,125 @@ echo "fslint"
                      then
 echo "gimp"
                      sudo apt-get install gimp -y
+              elif [ "$opcion" = "glabels" ]
+                     then
+echo "glabels"
+                     sudo apt-get install glabels -y
+              elif [ "$opcion" = "gparted" ]
+                     then
+echo "gparted"
+                     sudo apt-get install gparted -y
+              elif [ "$opcion" = "gucash" ]
+                     then
+echo "gucash"
+                     sudo apt-get install gnucash -y
               elif [ "$opcion" = "guvcview" ]
                      then
 echo "guvcview"
                      sudo apt-get install guvcview -y
+	      elif [ "$opcion" = "hamster" ]
+                     then
+echo "hamster"
+                     sudo apt-get install hamster-applet hamster-indicator -y
+              elif [ "$opcion" = "inkscape" ]
+                     then
+echo "inkscape"
+                     sudo apt-get install inkscape -y
+              elif [ "$opcion" = "java" ]
+                     then
+echo "java"
+		sudo add-apt-repository ppa:webupd8team/java -y
+		sudo apt-get update
+		sudo apt-get installoracle-java8-installer -y
+	      elif [ "$opcion" = "k3b" ]
+                     then
+echo "k3b"
+                     sudo apt-get install k3b dvdauthor breeze frei0r-plugins kde-l10n-es -y
+              elif [ "$opcion" = "kazam" ]
+                     then
+echo "kazam"
+                     sudo apt-get install kazam -y
+              elif [ "$opcion" = "kdenlive" ]
+                     then
+echo "kdenlive"
+		sudo add-apt-repository ppa:kdenlive/kdenlive-stable -y
+		sudo apt-get update
+		sudo apt-get install kdenlive -y
+                     sudo apt-get install openshot -y
+	      elif [ "$opcion" = "klavaro" ]
+                     then
+echo "klavaro"
+                     sudo apt-get install klavaro -y
               elif [ "$opcion" = "*kodi" ]
                      then
 echo "kodi"
 		sudo add-apt-repository ppa:team-xbmc/ppa -y 
 		sudo apt-get update
                      sudo apt-get install kodi -y
-              elif [ "$opcion" = "inkscape" ]
-                     then
-echo "inkscape"
-                     sudo apt-get install inkscape -y
-	      elif [ "$opcion" = "klavaro" ]
-                     then
-echo "klavaro"
-                     sudo apt-get install klavaro -y
-	      elif [ "$opcion" = "scribus" ]
-                     then
-echo "scribus"
-                     sudo apt-get install scribus -y
-              elif [ "$opcion" = "thunderbird" ]
-                     then
-echo "thunderbird"
-                     sudo apt-get install thunderbird -y
-              elif [ "$opcion" = "qbittorrent" ]
-                     then
-echo "qbittorrent"
-                     sudo apt-get install qbittorrent -y
-              elif [ "$opcion" = "wine" ]
-                     then
-echo "wine"
-                     sudo apt-get install wine q4wine playonlinux winetricks -y
-	      elif [ "$opcion" = "pinta" ]
-                     then
-echo "pinta"
-                     sudo apt-get install pinta -y
-              elif [ "$opcion" = "*dvdstyler" ]
-                     then
-echo "dvdstyler"
-		sudo add-apt-repository ppa:ubuntuhandbook1/dvdstyler -y
-		sudo apt-get update
-                     sudo apt-get install dvdstyler -y
-              elif [ "$opcion" = "audacity" ]
-                     then
-echo "audacity"
-                     sudo apt-get install audacity -y
-              elif [ "$opcion" = "tuxtype" ]
-                     then
-echo "tuxtype"
-                     sudo apt-get install tuxtype -y
 	      elif [ "$opcion" = "mixxx" ]
                      then
 echo "mixxx"
                      sudo apt-get install mixxx -y
-	      elif [ "$opcion" = "dia" ]
+              elif [ "$opcion" = "openshot" ]
                      then
-echo "dia"
-                     sudo apt-get install dia -y
-              elif [ "$opcion" = "glabels" ]
-                     then
-echo "glabels"
-                     sudo apt-get install glabels -y
-              elif [ "$opcion" = "gucash" ]
-                     then
-echo "gucash"
-                     sudo apt-get install gnucash -y
-	      elif [ "$opcion" = "hamster" ]
-                     then
-echo "hamster"
-                     sudo apt-get install hamster-applet hamster-indicator -y
-	      elif [ "$opcion" = "virtualbox" ]
-                     then
-echo "virtualbox"
-                     sudo apt-get install virtualbox -y
+echo "openshot"
+                     sudo apt-get install openshot -y
               elif [ "$opcion" = "osmo" ]
                      then
 echo "osmo"
                      sudo apt-get install osmo -y
-              elif [ "$opcion" = "blender" ]
+	      elif [ "$opcion" = "pinta" ]
                      then
-echo "blender"
-                     sudo apt-get install blender -y
+echo "pinta"
+                     sudo apt-get install pinta -y
+              elif [ "$opcion" = "qbittorrent" ]
+                     then
+echo "qbittorrent"
+                     sudo apt-get install qbittorrent -y
+	      elif [ "$opcion" = "scribus" ]
+                     then
+echo "scribus"
+                     sudo apt-get install scribus -y
+	      elif [ "$opcion" = "spotify" ]
+                     then
+echo "spotify"
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+	sudo apt-get update
+	sudo apt-get install spotify-client -y
+              elif [ "$opcion" = "ssh" ]
+                     then
+echo "ssh"
+                     sudo apt-get install ssh -y
+			sudo gedit /etc/ssh/sshd_config
+              elif [ "$opcion" = "synaptic" ]
+                     then
+echo "synaptic"
+                     sudo apt-get install synaptic -y
+	      elif [ "$opcion" = "testdisk" ]
+                     then
+echo "testdisk"
+                     sudo apt-get install testdisk -y
+              elif [ "$opcion" = "thunderbird" ]
+                     then
+echo "thunderbird"
+                     sudo apt-get install thunderbird -y
+              elif [ "$opcion" = "tuxtype" ]
+                     then
+echo "tuxtype"
+                     sudo apt-get install tuxtype -y
+	      elif [ "$opcion" = "virtualbox" ]
+                     then
+echo "virtualbox"
+                     sudo apt-get install virtualbox -y
+              elif [ "$opcion" = "vlc" ]
+                     then
+echo "vlc"
+                     sudo apt-get install vlc -y
+              elif [ "$opcion" = "wine" ]
+                     then
+echo "wine"
+                     sudo apt-get install wine q4wine playonlinux winetricks -y
               elif [ "$opcion" = "y-ppa-manager" ]
                      then
 echo "y-ppa-manager"
@@ -266,6 +272,10 @@ echo "chromium-bsu"
                      then
 echo "freegish"
                      sudo apt-get install freegish -y
+	      elif [ "$opcion" = "fretsonfire" ]
+                     then
+echo "fretsonfire"
+                     sudo apt-get install fretsonfire -y
               elif [ "$opcion" = "frogatto" ]
                      then
 echo "frogatto"
@@ -282,10 +292,22 @@ echo "kmahjongg"
                      then
 echo "ksquares"
                      sudo apt-get install ksquares -y
+              elif [ "$opcion" = "minetest" ]
+                     then
+echo "minetest"
+                     sudo apt-get install minetest minetest-mod-moreblocks minetest-mod-moreores minetest-mod-pipeworks -y
+	      elif [ "$opcion" = "openrena" ]
+                     then
+echo "openrena"
+                     sudo apt-get install openarena -y
               elif [ "$opcion" = "pokerth" ]
                      then
 echo "pokerth"
                      sudo apt-get install pokerth -y
+	      elif [ "$opcion" = "sauerbraten" ]
+                     then
+echo "sauerbraten"
+                     sudo apt-get install sauerbraten -y
 	      elif [ "$opcion" = "supertux" ]
                      then
 echo "supertux"
@@ -294,18 +316,11 @@ echo "supertux"
                      then
 echo "supertuxkart"
                      sudo apt-get install supertuxkart -y
-	      elif [ "$opcion" = "openrena" ]
+	      elif [ "$opcion" = "warzone2100" ]
                      then
-echo "openrena"
-                     sudo apt-get install openarena -y
-	      elif [ "$opcion" = "fretsonfire" ]
-                     then
-echo "fretsonfire"
-                     sudo apt-get install fretsonfire -y
-	      elif [ "$opcion" = "sauerbraten" ]
-                     then
-echo "sauerbraten"
-                     sudo apt-get install sauerbraten -y
+echo "warzone2100"
+                     sudo apt-get install warzone2100 -y
+
                fi
         done
         IFS=""
@@ -313,9 +328,6 @@ echo "sauerbraten"
 else
          /usr/bin/zenity --info --text="<b>Terminado!</b> Para mayor información ,  \nvisita <b>http://kajiinarumi.webutu.com/</b> o contactame en Telegram <b>https://telegram.me/kajiinarumi/</b>"
 fi
-
-
-
         elif [ "$opcion" = "Mantenimiento" ]
                      then
 	sudo apt-get update
@@ -324,15 +336,12 @@ fi
                fi
         done
      fi
-
-
-
 zenity --question \
 --text="¿Desea salir?"
 
 if [ $? -eq 1 ]
 then
-sh ChooiseYourApp.sh
+./ChooiseYourApp.sh
 else
 zenity --info \
 --text="<b>Terminado!</b> Para mayor información ,  \nvisita <b>http://kajiinarumi.webutu.com/</b> o contactame en Telegram <b>https://telegram.me/kajiinarumi/</b>"
@@ -340,6 +349,5 @@ zenity --info \
 exit
 
 fi
-
 
 
